@@ -1,0 +1,21 @@
+airflow:
+  executor: "LocalExecutor"
+  images:
+    airflow:
+      repository: airflow-k8s/airflow
+      tag: dev
+
+  webserver:
+    livenessProbe:
+      timeoutSeconds: 300
+      failureThreshold: 60
+    readinessProbe:
+      timeoutSeconds: 300
+      failureThreshold: 60
+  webserverSecretKey: "8794e51f60b192c8d06f599c75458aca"
+
+  statsd:
+    enabled: false
+  env:
+    - name: IMAGE_TASK
+      value: airflow-k8s/custom-task:dev
