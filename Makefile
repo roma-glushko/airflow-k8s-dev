@@ -14,3 +14,7 @@ k3d-start:  ## Start a new k3d cluster
 
 k3d-stop:  ## Stop the k3d cluster
 	@k3d cluster delete $(PROJECT_NAME)
+
+tilt: ## Deploy and start your dev flow
+	@tilt up
+

@@ -10,7 +10,7 @@ docker_build(
   ],
 )
 
-k8s_yaml(helm('chart', name=project_name))
+k8s_yaml(helm('chart', name=project_name, namespace='airflow'))
 
 k8s_resource('%s-scheduler' % project_name, labels=["airflow"])
 k8s_resource('%s-run-airflow-migrations' % project_name, labels=["airflow"])
